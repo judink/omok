@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io({ transports: ['websocket'], upgrade: false });
 const canvas = document.getElementById('board');
 const ctx = canvas.getContext('2d');
 const size = 15;
@@ -110,3 +110,4 @@ socket.on('opponentLeft', () => {
     document.getElementById('status').innerText = 'Your opponent has left the game.';
     document.getElementById('backToLobby').style.display = 'block';
 });
+

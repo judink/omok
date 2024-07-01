@@ -1,12 +1,19 @@
 const express = require('express');
 const serverless = require('serverless-http');
-const socketIo = require('socket.io');
 const http = require('http');
+const socketIo = require('socket.io');
+const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = socketIo(server, {
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }
+});
 
+app.use(cors());
 app.use(express.static('public'));
 
 let waitingPlayer = null;
