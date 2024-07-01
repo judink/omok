@@ -1,12 +1,11 @@
 const express = require('express');
-const http = require('http');
+const serverless = require('serverless-http');
 const socketIo = require('socket.io');
+const http = require('http');
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
-
-const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 
@@ -62,6 +61,4 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+module.exports.handler = serverless(app);
