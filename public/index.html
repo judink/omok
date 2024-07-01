@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gomoku</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Gomoku</h1>
+    <div id="lobby">
+        <button id="startMatching">Start Matching</button>
+    </div>
+    <div id="game" style="display: none;">
+        <canvas id="board" width="600" height="600"></canvas>
+        <p id="status"></p>
+        <button id="backToLobby" style="display: none;">Back to Lobby</button>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
